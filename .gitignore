@@ -1,0 +1,4 @@
+models/2023*
+outputs/*.png
+docker-compose.*
+my_cloud_filtering/__pycache__/
