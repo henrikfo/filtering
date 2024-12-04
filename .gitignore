@@ -1,4 +1,4 @@
-models/model_*
+models/2023*
 outputs/*.png
 docker-compose.*
-*.pyc
+my_cloud_filtering/__pycache__/
