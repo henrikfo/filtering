@@ -1,0 +1,4 @@
+models/model_*
+outputs/*.png
+docker-compose.*
+*.pyc
