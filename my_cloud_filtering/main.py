@@ -15,7 +15,7 @@ from torch.cuda import is_available
 DEVICE = "cpu"#"cuda" if is_available else "cpu"
 DO_PLOT = True
 
-MLP_POST_FILTER_SZ = 3  # 1 --> no filtering, >= 2 --> majority vote within that-sized square
+MLP_POST_FILTER_SZ = 1  # 1 --> no filtering, >= 2 --> majority vote within that-sized square
 
 # Computed at training
 def mean_std_11c():
@@ -87,8 +87,7 @@ def init(source:str = "l1c") -> tuple:
 def run_cloud_prediction(date: str = "2022-01-01", data_source:str = "l1c", params: dict = None):
 
 	# Get bands, models, etc. based on the data sources
-	bands, models, means, stds, cloud_thres, thin_cloud_thres, collection = init(data_source)
-	# params["geojson"]["collection"] = collection
+	bands, models, means, stds, cloud_thres, thin_cloud_thres, _ = init(data_source)
 
 	# Get data
 	data = get_data(source=data_source, date=date, params=params)

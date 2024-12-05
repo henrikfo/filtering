@@ -88,19 +88,15 @@ def download_eo_data(params) -> list:
             "20": ["b05", "b06", "b07", "b8a", "b11", "b12", "scl", "cld", "snw", "wvp", "aot"]}
 
     # Params for openEO data download
-    # print(params)
     params = params["geojson"]
 
     date = datetime.strptime(params["time"]["date"], '%Y-%m-%d')
     
     collection= params["collection"]
     collection = "s2_msi_l2a" if collection == "l2a" else "s2_msi_l1c"
-    # print(collection)
     
     bands_params=[band.lower() for band in params["bands"]]
     coords=params["geometry"]["coords"]
-    # print(coords)
-    # print(params)
     
     # Initialize dictionary to hold bands grouped by resolution
     bands_by_resolution = {"60": [], "10": [], "20": []}
