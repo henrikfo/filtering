@@ -1,0 +1,72 @@
+{
+    "conditions": {
+    	"executortype": "container-executor",
+        "nodes": 1,
+        "processespernode": 1,
+	    "mem": "10Gi",
+        "cpu": "1000m",
+        "gpu": {
+            "count": 0
+        },
+	"walltime": 1100
+    },
+    "maxexectime": 1000,
+    "maxretries": 3,
+    "funcname": "execute",
+    "kwargs": {
+        "cmd": "cd ",
+        "docker-image": "henrikforsgren/openeo:new",
+		"args": [
+            "cfs/my_cloud_filtering/ ; python3 main.py"
+		]
+    },
+	"env": {
+		"coords": "{\"east\": 14.738314570601137, \"south\": 56.01124906816998, \"west\": 14.609282538343072, \"north\": 56.083321086188}",
+        "date": "2022-01-06",
+		"data_source": "l2a"
+	},
+    "fs": {
+        "mount": "/cfs",
+        "dirs": [
+            {
+                "label": "/my_cloud_filtering",
+                "dir": "/my_cloud_filtering",
+                "keepfiles": false,
+                "onconflicts": {
+                    "onstart": {
+                        "keeplocal": false
+                    },
+                    "onclose": {
+                        "keeplocal": false 
+                    }
+                }
+            },
+            {
+                "label": "/models",
+                "dir": "/models",
+                "keepfiles": false,
+                "onconflicts": {
+                    "onstart": {
+                        "keeplocal": false
+                    },
+                    "onclose": {
+                        "keeplocal": false 
+                    }
+                }
+            },
+            {
+                "label": "/outputs",
+                "dir": "/outputs",
+                "keepfiles": false,
+                "onconflicts": {
+                    "onstart": {
+                        "keeplocal": false
+                    },
+                    "onclose": {
+                        "keeplocal": true 
+                    }
+                }
+            }
+        ]
+    }
+}

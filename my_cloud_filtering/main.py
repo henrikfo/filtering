@@ -169,6 +169,8 @@ if __name__ == "__main__":
 	data_source = os.getenv("data_source", default="l2a")
 	print(date, data_source, coords)
 
+	start_time = time.time()
+
 	params = {
 		"geojson": { 
 			"time": {
@@ -183,3 +185,4 @@ if __name__ == "__main__":
 			}
 	}
 	run_cloud_prediction(date=date, data_source=data_source, params=params)
+	print(time.time()-start_time)
