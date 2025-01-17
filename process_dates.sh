@@ -19,11 +19,11 @@ while [ $current_sec -le $end_sec ]; do
     # Convert current date to the desired format
     current_date=$(date -d "@$current_sec" +%Y-%m-%d)
 
-    # Use sed to update the date in the filtering.json file
-    sed -i "s/\"date\": \"[^\"]*\"/\"date\": \"$current_date\"/" filtering.json
+    # Use sed to update the date in the get_cloud_free.json file
+    sed -i "s/\"date\": \"[^\"]*\"/\"date\": \"$current_date\"/" get_cloud_free.json
 
-    # Run the command with the updated filtering.json
-    colonies function submit --spec filtering.json
+    # Run the command with the updated get_cloud_free.json
+    colonies function submit --spec get_cloud_free.json
 
     # Move to the next day
     current_sec=$((current_sec + 86400))  # Add 86400 seconds (1 day)
