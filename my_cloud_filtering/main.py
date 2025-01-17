@@ -159,10 +159,18 @@ def run_cloud_prediction(date: str = "2022-01-01", data_source:str = "l1c", para
 	plt.clf()
 	plt.close('all')
 
-	print("DONE")
+	return pred_cloudy, RGB
+
+def analysis(RGB):
+    # Do something with the RGB data.
+
+    # Save it to ../outputs/ with a date
+
+    return
 
 if __name__ == "__main__":
     
+    # Get env params
 	json_coords = os.getenv("coords", default="{\"east\": 14.79187736312752, \"south\": 55.991257253340635, \"west\": 14.555719745816692, \"north\": 56.10331290101734}")
 	coords = json.loads(json_coords)
 	date = os.getenv("date", default="2022-01-01")
@@ -171,6 +179,7 @@ if __name__ == "__main__":
 
 	start_time = time.time()
 
+	# Setup json config for the openeo api
 	params = {
 		"geojson": { 
 			"time": {
@@ -184,5 +193,15 @@ if __name__ == "__main__":
 			"bands": ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B10", "B11", "B12", "scl"]
 			}
 	}
-	run_cloud_prediction(date=date, data_source=data_source, params=params)
+
+	# Run cloud prediction
+	pred_cloudy, RGB = run_cloud_prediction(date=date, data_source=data_source, params=params)
+
+	# Run analysis if no cloud was found
+	if pred_cloudy:
+		pass
+	else:
+		analysis(RGB)
+		
+	print("DONE")
 	print(time.time()-start_time)
