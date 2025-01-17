@@ -5,3 +5,4 @@ Use a trained model to filter satelite images based on cloudiness and download i
 
 To understand each individual part better please check those repos out.
 
+Prerequisites include docker, docker-compose and ColonyOS.
