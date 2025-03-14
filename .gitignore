@@ -1,4 +1,5 @@
 outputs/*.png
 docker-compose.*
 my_cloud_filtering/__pycache__/
+my_cloud_filtering/config.py
 *.cfs*
