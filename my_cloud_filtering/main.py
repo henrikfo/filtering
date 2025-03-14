@@ -124,40 +124,40 @@ def run_cloud_prediction(date: str = "2022-01-01", data_source:str = "l1c", para
 	# Visualize results     
 	fig = plt.figure(figsize=(16, 16))
 
-	fig.add_subplot(1,4,1)
+	# fig.add_subplot(1,4,1)
 	plt.imshow(RGB, vmin=0, vmax=1)
-	plt.title(f'image, {"Cloudy" if pred_cloudy else "Not cloudy"}')
+	# plt.title(f'image, {"Cloudy" if pred_cloudy else "Not cloudy"}')
 	plt.axis('off')
 
-	fig.add_subplot(1,4,2)
-	plt.imshow(RGB, vmin=0, vmax=1)
-	if True: #SHOW_CLOUD_CONTOUR_ON_IMG:
-		contours = measure.find_contours(0.0 + pred_map_binary + pred_map_binary_thin)#, 0.9)
-		for contours_entry in contours:
-			plt.plot(contours_entry[:, 1], contours_entry[:, 0], color='r')
-	plt.title('image w contours')
-	plt.axis('off')
+	# fig.add_subplot(1,4,2)
+	# plt.imshow(RGB, vmin=0, vmax=1)
+	# if True: #SHOW_CLOUD_CONTOUR_ON_IMG:
+	# 	contours = measure.find_contours(0.0 + pred_map_binary + pred_map_binary_thin)#, 0.9)
+	# 	for contours_entry in contours:
+	# 		plt.plot(contours_entry[:, 1], contours_entry[:, 0], color='r')
+	# plt.title('image w contours')
+	# plt.axis('off')
 	
-	fig.add_subplot(1,4,3)
-	plt.title('pred (min, max)=(%.3f, %.3f)' % (np.nanmin(pred_map), np.nanmax(pred_map)))
-	pred_map[np.isnan(pred_map)] = 0
-	plt.imshow(pred_map, vmin=0, vmax=1, cmap='gray')
-	plt.axis('off')
+	# fig.add_subplot(1,4,3)
+	# plt.title('pred (min, max)=(%.3f, %.3f)' % (np.nanmin(pred_map), np.nanmax(pred_map)))
+	# pred_map[np.isnan(pred_map)] = 0
+	# plt.imshow(pred_map, vmin=0, vmax=1, cmap='gray')
+	# plt.axis('off')
 
-	fig.add_subplot(1,4,4)
-	plt.imshow(0.0 + 2*pred_map_binary + pred_map_binary_thin, vmin=0, vmax=2, cmap='gray')
-	plt.title('pred-binary, cloudy (%.1f prct)' % frac_binary)
-	plt.axis('off')
+	# fig.add_subplot(1,4,4)
+	# plt.imshow(0.0 + 2*pred_map_binary + pred_map_binary_thin, vmin=0, vmax=2, cmap='gray')
+	# plt.title('pred-binary, cloudy (%.1f prct)' % frac_binary)
+	# plt.axis('off')
 
-	print("Cloudy:", bool(pred_cloudy))
+	# print("Cloudy:", bool(pred_cloudy))
 	if pred_cloudy == False:
-		save_path = f"../outputs/pred_{date}_{data_source}"
+		save_path = f"../outputs/RBG_{date}_{data_source}"
 		print("saving: ", save_path)
 		plt.savefig(save_path)
 
-	plt.cla()
-	plt.clf()
-	plt.close('all')
+	# plt.cla()
+	# plt.clf()
+	# plt.close('all')
 
 	return pred_cloudy, RGB
 
@@ -198,10 +198,10 @@ if __name__ == "__main__":
 	pred_cloudy, RGB = run_cloud_prediction(date=date, data_source=data_source, params=params)
 
 	# Run analysis if no cloud was found
-	if pred_cloudy:
-		pass
-	else:
-		analysis(RGB)
+	# if pred_cloudy:
+	# 	pass
+	# else:
+	# 	analysis(RGB)
 		
 	print("DONE")
 	print(time.time()-start_time)
