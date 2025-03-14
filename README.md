@@ -17,7 +17,6 @@ Take inspiration of ColonyOS and from this PoC, develop and release a product th
 Build pipeplines for collection of large data for (un)supervised learning.  
 Utilize the  flexible nature of ColonyOS workflows and setup complex pipelines for data collection, processing abd gathering of large amounts of data.
 
-DEPLOY OTHER USE-CASES WITH PRE-TRAINED MODELS FOR EVENT DETECTION/ALARM 
 Deploy usecases ontop of this PoC.
 Using a set of different pretrained models, configure an event detection/alarm system. Get notified when a particular event happens.  
 Can be spatially specific or not, meaning you might be interested in a particular area or event. Can be continuously ran, indefinite.  
