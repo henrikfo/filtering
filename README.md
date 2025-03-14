@@ -19,7 +19,7 @@ Utilize the  flexible nature of ColonyOS workflows and setup complex pipelines f
 
 Deploy usecases ontop of this PoC.  
 Using a set of different pretrained models, configure an event detection/alarm system. Get notified when a particular event happens.  
-Can be spatially specific or not, meaning you might be interested in a particular area or event. Can be continuously ran, indefinite.  
+Can be spatially specific or not, meaning you might be interested in a particular area locally or an event globally. Can be continuously ran, indefinite.  
 
 
 
